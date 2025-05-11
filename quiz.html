@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中數學2下 - 測驗</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>國中數學2下 - 測驗</h1>
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">返回首頁</a>
+            <a href="review.html" class="nav-button">前往複習</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="quiz">
+            <h2>測驗</h2>
+            <div id="quiz-container">
+                <form id="quiz-form">
+                    <!-- 測驗題目將由JavaScript動態生成 -->
+                </form>
+                <div class="quiz-controls">
+                    <button id="submit-quiz">提交測驗</button>
+                    <div id="quiz-results" style="display: none;">
+                        <h3>測驗結果</h3>
+                        <p>得分: <span id="score">0</span> / <span id="total-score">100</span></p>
+                        <div id="question-feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 國中數學複習教材</p>
+    </footer>
+
+    <script src="quiz.js"></script>
+    <script src="quiz-questions.js"></script>
+</body>
+</html>
