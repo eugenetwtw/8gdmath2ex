@@ -40,7 +40,8 @@ function initializeQuiz() {
 }
 
 // Function to submit quiz
-function submitQuiz() {
+function submitQuiz(event) {
+    event.preventDefault();
     let score = 0;
     let feedbackHTML = '';
     
@@ -60,12 +61,13 @@ function submitQuiz() {
                 resultElement.innerHTML = `<div class="wrong-answer">錯誤。正確答案是: ${q.options[q.answer]}</div>`;
                 questionElement.style.backgroundColor = 'rgba(220, 53, 69, 0.1)';
             }
+            feedbackHTML += `<p>問題 ${q.id}: ${userAnswer === q.answer ? '<span class="correct">正確！</span>' : '<span class="incorrect">錯誤。</span>正確答案是: ' + q.options[q.answer]}</p>`;
         } else {
             resultElement.innerHTML = `<div class="wrong-answer">未作答。正確答案是: ${q.options[q.answer]}</div>`;
+            feedbackHTML += `<p>問題 ${q.id}: 未作答。正確答案是: ${q.options[q.answer]}</p>`;
         }
         
         resultElement.style.display = 'block';
-        feedbackHTML += `<p>${selectedOption ? (userAnswer === q.answer ? `問題 ${q.id}: <span class="correct">正確！</span>` : `問題 ${q.id}: <span class="incorrect">錯誤。</span>正確答案是: ${q.options[q.answer]}`) : `問題 ${q.id}: 未作答。正確答案是: ${q.options[q.answer]}`}</p>`;
     });
     
     document.getElementById('score').textContent = score;
